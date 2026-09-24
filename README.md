@@ -1,10 +1,10 @@
-# 🌱 IoT Greenhouse Monitoring System
+# IoT Greenhouse Monitoring System
 
 ## Introduction
 
 This project implements an edge-to-cloud IoT system for affordable, intelligent greenhouse monitoring. It integrates DHT22, PIR, and MQ-2 sensors on a Raspberry Pi with real-time MQTT publishing to ThingsBoard, combining real-time monitoring, automated alerting, and on-device (edge) AI prediction.
 
-## ⚙️ How It Works
+## How It Works
 
 1. Environmental sensors (DHT22 for temperature/humidity, PIR for motion, MQ-2 for gas) collect real-time data on the Raspberry Pi.
 2. Sensor readings are published in real time via MQTT (paho-mqtt) to a ThingsBoard cloud dashboard.
@@ -13,7 +13,7 @@ This project implements an edge-to-cloud IoT system for affordable, intelligent 
 5. An interactive real-time dashboard on ThingsBoard displays live sensor data and alarm history.
 6. A Random Forest regression model, trained on locally collected data, runs directly on the Raspberry Pi to forecast future temperature and humidity trends.
 
-## 🧠 Edge AI Component
+## Edge AI Component
 
 Rather than relying solely on cloud-based processing, this project brings prediction directly to the edge:
 
@@ -21,7 +21,7 @@ Rather than relying solely on cloud-based processing, this project brings predic
 - **Self-collected dataset**: the training data was gathered locally in Tunisia under real greenhouse conditions, rather than using a generic public dataset, making the model more representative of the actual deployment environment.
 - **Low-resource design**: Random Forest was chosen for its balance between predictive accuracy and computational efficiency, making it suitable for continuous execution on Raspberry Pi-class hardware.
 
-## 🔑 Key Features
+## Key Features
 
 - Real-time environmental monitoring (temperature, humidity, motion, gas)
 - Automated critical alarms via ThingsBoard Rule Chains on gas threshold breaches
@@ -29,28 +29,28 @@ Rather than relying solely on cloud-based processing, this project brings predic
 - Interactive real-time dashboard for remote monitoring
 - Edge AI forecasting of temperature and humidity using Random Forest
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Hardware**: Raspberry Pi, DHT22, PIR (HC-SR501), MQ-2, GPIO
 - **Communication**: MQTT (paho-mqtt)
 - **Cloud platform**: ThingsBoard (Rule Chains, real-time dashboard)
 - **Machine Learning**: Python, scikit-learn (Random Forest Regression)
 
-## 🚀 Installation & Usage
+## Installation & Usage
 
 Install Python dependencies:
-```bash
+\`\`\`bash
 pip install -r requirements.txt
-```
+\`\`\`
 
 Run the monitoring script:
-```bash
+\`\`\`bash
 python monitor.py
-```
+\`\`\`
 
 Train the Random Forest model (if retraining is needed):
-```bash
+\`\`\`bash
 python train_random_forest.py
-```
+\`\`\`
 
 > Note: MQTT broker credentials and ThingsBoard device tokens should be configured via environment variables or a `.env` file, not hardcoded in the source code.
